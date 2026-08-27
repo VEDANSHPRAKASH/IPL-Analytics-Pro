@@ -1,0 +1,244 @@
+/* ==========================================================================
+   IPL Analytics Pro — Design Tokens
+   Theme: "Under the Lights" — a night IPL game, floodlights against a dark
+   sky, the ball's seam as the recurring structural motif for dividers.
+   ========================================================================== */
+:root {
+  --bg: #0a0e14;
+  --surface: #121822;
+  --surface-raised: #171f2c;
+  --border: #232d3d;
+  --floodlight: #f0b429;      /* stadium floodlight gold */
+  --pitch: #4a9d6a;           /* pitch green, used sparingly for "win" states */
+  --seam-red: #c0392b;        /* cricket-ball seam red, used sparingly for "loss" states */
+  --text-primary: #e9edf3;
+  --text-muted: #8a96a8;
+  --text-faint: #566072;
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  background-image:
+    radial-gradient(ellipse 900px 500px at 15% -10%, rgba(240, 180, 41, 0.09), transparent),
+    radial-gradient(ellipse 700px 400px at 100% 0%, rgba(74, 157, 106, 0.07), transparent);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-shell {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+}
+
+/* --- Header --- */
+.hero {
+  padding: 28px 0 20px;
+}
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--floodlight);
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 700;
+  margin: 6px 0 8px;
+  letter-spacing: -0.01em;
+}
+.hero p {
+  color: var(--text-muted);
+  font-size: 15px;
+  max-width: 640px;
+  line-height: 1.55;
+}
+
+/* --- Signature element: stitched seam divider --- */
+.seam-divider {
+  width: 100%;
+  height: 20px;
+  margin: 36px 0 28px;
+  opacity: 0.9;
+}
+
+/* --- Nav tabs --- */
+.tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+.tab {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 10px 16px;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.tab:hover { color: var(--text-primary); }
+.tab.active {
+  color: var(--floodlight);
+  border-bottom-color: var(--floodlight);
+}
+
+/* --- Cards / grid --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 22px;
+}
+.card-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+.card-sub {
+  font-size: 12.5px;
+  color: var(--text-faint);
+  margin: 0 0 16px;
+}
+
+/* --- Stat rows / leaderboards --- */
+.stat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13.5px;
+}
+.stat-row:last-child { border-bottom: none; }
+.stat-rank {
+  font-family: var(--font-mono);
+  color: var(--text-faint);
+  width: 22px;
+  display: inline-block;
+}
+.stat-name { color: var(--text-primary); font-weight: 500; }
+.stat-value {
+  font-family: var(--font-mono);
+  color: var(--floodlight);
+  font-weight: 600;
+}
+
+/* --- Win probability simulator --- */
+.simulator-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.field label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+.field select, .field input {
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 9px 10px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 13.5px;
+}
+.field select:focus, .field input:focus {
+  outline: 2px solid var(--floodlight);
+  outline-offset: 1px;
+}
+
+.predict-btn {
+  margin-top: 18px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: var(--floodlight);
+  color: #1a1300;
+  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 14px;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+.predict-btn:hover { filter: brightness(1.08); }
+.predict-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.win-bar-wrap {
+  margin-top: 22px;
+}
+.win-bar {
+  height: 34px;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  border: 1px solid var(--border);
+}
+.win-bar-segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  transition: width 0.4s ease;
+}
+.win-bar-batting { background: var(--pitch); color: #06170c; }
+.win-bar-bowling { background: var(--seam-red); color: #1a0605; }
+
+.legend-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.footnote {
+  font-size: 12px;
+  color: var(--text-faint);
+  margin-top: 14px;
+  line-height: 1.5;
+}
+
+.error-banner {
+  background: rgba(192, 57, 43, 0.12);
+  border: 1px solid var(--seam-red);
+  color: #e39a92;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.loading-text {
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}

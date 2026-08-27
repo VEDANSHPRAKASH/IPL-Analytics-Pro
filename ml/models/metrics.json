@@ -1,0 +1,12 @@
+{
+  "test_seasons_held_out": [
+    "2025",
+    "2026"
+  ],
+  "accuracy": 0.7803,
+  "roc_auc": 0.9021,
+  "log_loss": 0.4423,
+  "brier_score": 0.1447,
+  "n_train": 125592,
+  "n_test": 16503
+}

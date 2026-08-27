@@ -1,0 +1,26 @@
+{
+  "cat_cols": [
+    "batting_team",
+    "bowling_team",
+    "venue"
+  ],
+  "num_cols": [
+    "runs_left",
+    "balls_left",
+    "wickets_left",
+    "target",
+    "current_run_rate",
+    "required_run_rate"
+  ],
+  "feature_cols": [
+    "batting_team_enc",
+    "bowling_team_enc",
+    "venue_enc",
+    "runs_left",
+    "balls_left",
+    "wickets_left",
+    "target",
+    "current_run_rate",
+    "required_run_rate"
+  ]
+}
