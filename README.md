@@ -210,18 +210,3 @@ ipl-analytics-pro/
 
 ---
 
-## Talking points for interviews
-
-- **Data normalization decision-making**: explain *why* Deccan Chargers ≠
-  Sunrisers Hyderabad but Delhi Daredevils = Delhi Capitals — shows you
-  understand the domain, not just the code.
-- **Evaluation methodology**: be ready to explain why a season-based
-  holdout was used instead of a random split, and what would have gone
-  wrong with a random split (data leakage between correlated rows of the
-  same match).
-- **Feature engineering from event-level data**: ball-by-ball rows had to
-  be turned into running match-state features (cumulative sums, target
-  computed from the other innings) — this is the same kind of engineering
-  used in real-time sports analytics and fraud-detection style systems.
-- **Full-stack integration**: SQL warehouse → Python ML → FastAPI → React,
-  the same pattern as your other full-stack projects (EMS Pro, SpendSmart).
